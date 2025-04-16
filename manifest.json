@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Poki Game Downloader",
+  "version": "1.0",
+  "description": "Downloads the core game file from Poki game pages.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "downloads",
+    "*://*.poki.com/*",
+    "*://*.poki-gdn.com/*",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["jszip.min.js", "background.js"] 
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": { 
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  }
+}
