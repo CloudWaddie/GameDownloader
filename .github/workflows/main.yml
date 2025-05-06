@@ -8,6 +8,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      ADDON_SOURCE_DIR: .
+      ADDON_XPI_FILE: addon.xpi
 
     steps:
       - name: Checkout code
@@ -15,23 +18,20 @@ jobs:
 
       - name: Zip and Rename Add-on
         run: |
-          ADDON_SOURCE_DIR=.
-          ADDON_XPI_FILE=addon.xpi
-
-          echo "Zipping add-on source from '$ADDON_SOURCE_DIR' into '$ADDON_XPI_FILE'..."
+          echo "Zipping add-on source from '${{ env.ADDON_SOURCE_DIR}}' into '${{ env.ADDON_XPI_FILE }}'..."
 
           # Change directory into the source directory to ensure correct archive structure (manifest.json at root)
-          pushd $ADDON_SOURCE_DIR
+          pushd ${{ env.ADDON_XPI_FILE }}
 
           # Create the XPI file directly in the GitHub workspace root ($GITHUB_WORKSPACE)
           # We use ./* to include all files and directories within the source directory.
           # -r ensures recursive zipping.
-          zip -r $GITHUB_WORKSPACE/$ADDON_XPI_FILE ./*
+          zip -r $GITHUB_WORKSPACE/${{ env.ADDON_XPI_FILE }} ./*
 
           # Change back to the original directory
           popd
 
-          echo "$ADDON_XPI_FILE created successfully."
+          echo "${{ env.ADDON_XPI_FILE }} created successfully."
 
           # Optional: List files in the workspace root to verify the created file
           ls $GITHUB_WORKSPACE/
