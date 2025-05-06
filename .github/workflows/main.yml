@@ -21,7 +21,7 @@ jobs:
           echo "Zipping add-on source from '${{ env.ADDON_SOURCE_DIR}}' into '${{ env.ADDON_XPI_FILE }}'..."
 
           # Change directory into the source directory to ensure correct archive structure (manifest.json at root)
-          pushd ${{ env.ADDON_XPI_FILE }}
+          pushd ${{ env.ADDON_SOURCE_DIR }}
 
           # Create the XPI file directly in the GitHub workspace root ($GITHUB_WORKSPACE)
           # We use ./* to include all files and directories within the source directory.
