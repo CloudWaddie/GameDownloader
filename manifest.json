@@ -17,8 +17,12 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": { 
-      "16": "icons/icon-16.png",
-      "32": "icons/icon-32.png"
+      "32": "icons/icon-32.jpg"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+        "id": "gamedownloader@github.com.cloudwaddie"
     }
   }
 }
