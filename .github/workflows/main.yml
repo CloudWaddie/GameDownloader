@@ -40,7 +40,7 @@ jobs:
         uses: wdzeng/firefox-addon@v1.2.0
         with:
           # Point the action to the XPI file we just created
-          source-file-path: ${{ github.workspace }}/${{ env.ADDON_XPI_FILE }} # Use the full path to the created XPI
           addon-guid: gamedownloader@github.com.cloudwaddie
+          xpi-file: ${{ github.workspace }}/${{ env.ADDON_XPI_FILE }}
           jwt-issuer: ${{ secrets.AMO_JWT_ISSUER }}
           jwt-secret: ${{ secrets.AMO_JWT_SECRET }}
