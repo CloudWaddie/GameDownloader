@@ -41,5 +41,6 @@ jobs:
         with:
           # Point the action to the XPI file we just created
           source-file-path: ${{ github.workspace }}/${{ env.ADDON_XPI_FILE }} # Use the full path to the created XPI
+          addon-guid: gamedownloader@github.com.cloudwaddie
           jwt-issuer: ${{ secrets.AMO_JWT_ISSUER }}
           jwt-secret: ${{ secrets.AMO_JWT_SECRET }}
